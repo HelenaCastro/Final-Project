@@ -50,8 +50,10 @@
 
 					<td>${item.price}</td>
 
-                    <td> <button type="submit" class="btn btn-warning">Delete</button> </td>
-
+                    <td>
+                    <a href="/courses/rumos/delete/${item.ID}">
+                    <button type="submit" class="btn btn-warning">Delete</button> </td>
+                    </a>
 
 				</tr>
 				</#list>

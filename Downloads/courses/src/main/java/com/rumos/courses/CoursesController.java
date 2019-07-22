@@ -6,17 +6,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Controller
 @Data
 public class CoursesController {
 
     static int ID = 1;
-    static List<Course> curso = new ArrayList<Course>();
+    static List<Course> curso = new CopyOnWriteArrayList<>();
 
 
     @GetMapping("/")
@@ -44,17 +46,21 @@ public class CoursesController {
         return "courses";
     }
 
-    @DeleteMapping("/courses/rumos/{id}")
-    @ResponseBody
-    public void delete(@PathVariable("id") int courseId, Model model) {
+    @GetMapping("/courses/rumos/delete/{id}")
+    public ModelAndView delete(@PathVariable("id") int courseId, Model model) {
+        System.out.println("courseId");
+        deleteCourse(courseId);
+        model.addAttribute("cursoespetacular", curso);
+        return new ModelAndView("redirect:/courses/rumos");
+
+    }
+
+    private void deleteCourse(int courseId){
         for (Course c : curso) {
             if (c.getID() == courseId) {
                 curso.remove(c);
             }
         }
-        model.addAttribute("cursoespetacular", curso);
-
-
     }
 }
 
