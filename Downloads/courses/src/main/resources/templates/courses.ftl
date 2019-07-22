@@ -44,15 +44,19 @@
 			<tbody>
 				<#list cursoespetacular as item>
 				<tr>
-				    <th scope="row">1</th>
+				    <th scope="row">${item.ID}</th>
+
 					<th >${item.name}</th>
 
 					<td>${item.price}</td>
 
-					<td><a class="btn btn-sm btn-warning" role="button"
-						<#-- href="/delete/${customer.customerId}">Delete</a></td> -->
+                    <td> <button type="submit" class="btn btn-warning">Delete</button> </td>
+
+
 				</tr>
 				</#list>
+
+
 			</tbody>
 		</table>
 	</div>

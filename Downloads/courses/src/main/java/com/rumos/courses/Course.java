@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 @Data
 
 public class Course {
+    int ID;
     String name;
     Double price;
 
