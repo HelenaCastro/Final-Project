@@ -36,7 +36,7 @@
 				<tr>
 					<th>ID</th>
 					<th> name</th>
-					<th>price</th>
+					 <th>price</th>
 
 					<th></th>
 				</tr>
@@ -48,12 +48,16 @@
 
 					<th >${item.name}</th>
 
-					<td>${item.price}</td>
+					 <td>${item.price}</td>
 
                     <td>
                     <a href="/courses/rumos/delete/${item.ID}">
                     <button type="submit" class="btn btn-warning">Delete</button> </td>
                     </a>
+                            <td>
+                     <a href="/courses/rumos/update?Id=${item.ID}">
+                     <button type="submit" class="btn btn-edit" role="button">Update</button> </td>
+                      </a>
 
 				</tr>
 				</#list>
